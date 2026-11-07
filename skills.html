@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Section</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Lucida Sans', Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKUu59XDpivBBiQo8UpCnzusGQr8GbYKeK1uhvFtFOFw&s=10);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        nav {
+            min-height: 70px;
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            border-bottom: 3px solid white;
+            padding: 10px;
+        }
+        .li {
+            font-size: 18px;
+            cursor: pointer;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+        }
+        h1, h2 {
+            text-align: center;
+            text-decoration: underline;
+            margin-top: 30px;
+        }
+        .container {
+           width: 300px;
+            margin: 40px auto;  
+             display: flex;
+           justify-content: center;
+            
+           gap: 10px;
+            padding: 0 15px;
+        }
+        .box {
+            height: 200px;
+            width: 200px;
+            background-color: white;
+            box-shadow: 0 10px 20px rgba(0,0,0,.15);
+           gap: 40px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100px;
+              background-size: cover;
+        }
+        .box img {
+           height: 200px;
+            width: 200px;
+            background-size: cover;
+            font-size: 10px;
+            background-size: cover;
+             border-radius: 100px;
+        }
+        .parent {
+            max-width: 1200px;
+            margin: 30px auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0 15px;
+        }
+        .cards {
+            background-color: #f4f4f4;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .cards p {
+            font-size: 18px;
+            margin: 0;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body> 
+    <header>
+        <nav>
+            <a href="./index.html"><div class="li">Home</div></a>
+            <a href="./About.html"><div class="li">About Me</div></a>
+            <a href="./Contact.html"><div class="li">Contact Me</div></a>
+           <a href="./project.html"><div class="li">My Project</div></a> 
+            <a href="./skills.html"><div class="li">Skills</div></a>
+        </nav>
+    </header>
+
+    <h1 data-aos="zoom-in">What I Do For You</h1>
+    
+    <div class="container">
+        <div data-aos="zoom-in" class="box"><img height="200px" width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzPgZzZgoUtKa3VoBEgoOBGx9SJJXU-WtNq0P995rfsQ&s=10" alt="HTML"></div>
+       
+        <div data-aos="zoom-in" class="box"><img height="200px" width="200px" src="https://llumine.com.br/wp-content/uploads/2018/03/css-logo-300x300.png" alt="CSS"></div>
+        <div data-aos="zoom-in" class="box"><img height="250px" width="300px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPnBCXept36fSYFJ6gTOynI04NatZzIrjN9H5nWDihpg&s=10" alt="JS"></div>
+         
+        <div data-aos="zoom-in" class="box"><img height="200px" width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhNz5ZAAtSc8d_jHXuwyfNQDesTwrnmH3Z40C6aDlnIQ&s" alt="React"></div>
+        <div data-aos="zoom-in" class="box"><img height="200px" width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAtFTZdtU2zuAIdk5OdtBDlGGC4gSS1JoUsDBuCz4_6A&s" alt="Node"></div>
+        
+        <div data-aos="zoom-in" class="box"><img height="200px" width="200px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPOuV_Sg7WgCnAaq8behHYmUgI-HS1wQhW58POc5wEfA&s=10" alt="Node"></div>
+    </div>
+
+         
+    <h2 data-aos="zoom-in">Why Hire Me?</h2>
+    <div class="parent">
+        <div class="cards"><p> Fast Performance</p></div>
+        <div class="cards"><p>Responsive Design</p></div>
+        <div class="cards"><p> Clean UI</p></div>
+        <div class="cards"><p>Secure Code</p></div>
+        <div class="cards"><p> Modern Technologies</p></div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

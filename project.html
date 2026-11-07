@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Website using HTML,CSS,JS</title>
+    <meta
+      name="description"
+      content="MaintainIQ brings every physical asset into a digital maintenance workflow with public pages, issue reporting, task assignment, and service history."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+   <style>
+    :root {
+  color-scheme: dark;
+  --bg: #07111f;
+  --panel: rgba(10, 23, 39, 0.9);
+  --panel-2: rgba(16, 32, 55, 0.9);
+  --text: #f4f7fb;
+  --muted: #96a8c3;
+  --accent: #52d1c7;
+  --accent-2: #7c7cf6;
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(82, 209, 199, 0.2), transparent 24%),
+    linear-gradient(135deg, var(--bg), #0f1d32 70%);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  backdrop-filter: blur(14px);
+  background: rgba(7, 17, 31, 0.8);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.2rem;
+  color: var(--muted);
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+  border: 0;
+  padding: 0.25rem;
+}
+
+.menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+}
+
+.hero,
+.section,
+.footer {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 2rem;
+  padding: 4.5rem 0 3rem;
+  align-items: center;
+}
+
+.eyebrow {
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.hero h1,
+.section h2 {
+  font-size: clamp(2rem, 4vw, 3.3rem);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+.lead {
+  font-size: 1.06rem;
+  color: var(--muted);
+  max-width: 650px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1.4rem 0 1.2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #01111d;
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  color: var(--muted);
+}
+
+.hero-points li {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+}
+
+.hero-card,
+article,
+.step {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.hero-card {
+  padding: 1.4rem;
+  border-radius: 24px;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.pill.accent {
+  background: rgba(82, 209, 199, 0.16);
+  color: var(--accent);
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.mini-grid div {
+  padding: 0.8rem;
+  border-radius: 16px;
+  background: var(--panel-2);
+}
+
+.mini-grid strong,
+article h3,
+.step h3 {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto 2.2rem;
+}
+
+.stats article {
+  padding: 1.2rem;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.stats strong {
+  display: block;
+  font-size: 1.4rem;
+  color: var(--accent);
+}
+
+.section {
+  padding: 2.4rem 0;
+}
+
+.section-alt {
+  padding: 3rem 0;
+}
+
+.cards,
+.feature-grid,
+.timeline {
+  display: grid;
+  gap: 1rem;
+}
+
+.cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.feature-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+article,
+.step {
+  padding: 1.2rem;
+  border-radius: 20px;
+}
+
+article p,
+.step p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.timeline {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.step span {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.use-cases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.use-cases span {
+  padding: 0.6rem 0.8rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.footer {
+  padding: 2rem 0 2.8rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .cards,
+  .feature-grid,
+  .timeline {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    padding: 1rem;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 1rem;
+    flex-direction: column;
+    background: rgba(7, 17, 31, 0.96);
+    padding: 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero,
+  .cards,
+  .feature-grid,
+  .timeline,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 2rem;
+  }
+
+  .mini-grid {
+    grid-template-columns: 1fr;
+  }
+}
+   </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#hero">MaintainIQ</a>
+      <nav class="nav-links" id="nav-links">
+        <a href="#problem">Why it matters</a>
+        <a href="#features">Platform</a>
+        <a href="#workflow">Workflow</a>
+        <a href="#use-cases">Use cases</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Hackathon concept · intelligent facility operations</p>
+          <h1>Every asset deserves a digital maintenance identity.</h1>
+          <p class="lead">
+            MaintainIQ gives facilities a smarter way to manage physical assets with
+            QR-accessible public pages, structured issue reporting, assignment workflows,
+            and a permanent service history.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#workflow">See the workflow</a>
+            <a class="btn btn-secondary" href="#features">Explore platform</a>
+          </div>
+          <ul class="hero-points">
+            <li>Issue triage and accountability</li>
+            <li>Evidence-rich service records</li>
+            <li>Preventive maintenance recommendations</li>
+          </ul>
+        </div>
+        <div class="hero-card" aria-label="MaintainIQ product snapshot">
+          <div class="card-top">
+            <span class="pill">Live asset view</span>
+            <span class="pill accent">QR entry</span>
+          </div>
+          <h2>Asset 24 · HVAC Unit</h2>
+          <p>Last serviced 12 days ago · 2 open issues · 1 preventive task due</p>
+          <div class="mini-grid">
+            <div>
+              <strong>Issue</strong>
+              <span>Unusual noise from condenser</span>
+            </div>
+            <div>
+              <strong>Assigned</strong>
+              <span>Facilities team · High priority</span>
+            </div>
+            <div>
+              <strong>History</strong>
+              <span>7 maintenance events logged</span>
+            </div>
+            <div>
+              <strong>Next action</strong>
+              <span>Inspect belt and vibration</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats">
+        <article>
+          <strong>1</strong>
+          <span>shared asset page</span>
+        </article>
+        <article>
+          <strong>24/7</strong>
+          <span>issue visibility</span>
+        </article>
+        <article>
+          <strong>100%</strong>
+          <span>service history retention</span>
+        </article>
+      </section>
+
+      <section class="section" id="problem">
+        <div class="section-heading">
+          <p class="eyebrow">Why this matters</p>
+          <h2>Maintenance problems are often hidden in fragmented processes.</h2>
+        </div>
+        <div class="cards">
+          <article>
+            <h3>Fragmented reporting</h3>
+            <p>Issues reach teams through chat, calls, paper notes, or forgotten tickets.</p>
+          </article>
+          <article>
+            <h3>No shared record</h3>
+            <p>Assets lack a consistent digital footprint, making accountability hard to track.</p>
+          </article>
+          <article>
+            <h3>Reactive maintenance</h3>
+            <p>Small problems become costly failures because preventive action is delayed.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="features">
+        <div class="section-heading">
+          <p class="eyebrow">Platform capabilities</p>
+          <h2>MaintainIQ is more than a QR code entry point.</h2>
+        </div>
+        <div class="feature-grid">
+          <article>
+            <h3>Digital asset identity</h3>
+            <p>Every asset gets a permanent profile with location, type, owners, criticality, and lifecycle details.</p>
+          </article>
+          <article>
+            <h3>Public asset page</h3>
+            <p>QR scanning opens a public page for issue reporting, status visibility, and service context.</p>
+          </article>
+          <article>
+            <h3>Issue triage workflow</h3>
+            <p>Reports are categorized, prioritized, assigned, and tracked through to resolution.</p>
+          </article>
+          <article>
+            <h3>Evidence and history</h3>
+            <p>Photos, notes, technician handoffs, and service logs create a durable audit trail.</p>
+          </article>
+          <article>
+            <h3>Preventive recommendations</h3>
+            <p>Historical patterns support alerts, recurring checks, and smarter maintenance planning.</p>
+          </article>
+          <article>
+            <h3>Accountability</h3>
+            <p>Every action, owner, and outcome is visible so nothing falls through the cracks.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="workflow">
+        <div class="section-heading">
+          <p class="eyebrow">How it works</p>
+          <h2>A clean flow from report to resolution.</h2>
+        </div>
+        <div class="timeline">
+          <div class="step">
+            <span>01</span>
+            <h3>Scan or identify asset</h3>
+            <p>The user opens the asset page through a QR code, tag, or search.</p>
+          </div>
+          <div class="step">
+            <span>02</span>
+            <h3>Report an issue</h3>
+            <p>They submit a description, severity, image evidence, and location context.</p>
+          </div>
+          <div class="step">
+            <span>03</span>
+            <h3>Triage and assign</h3>
+            <p>The maintenance team reviews the case, prioritizes it, and deploys the right technician.</p>
+          </div>
+          <div class="step">
+            <span>04</span>
+            <h3>Resolve and record</h3>
+            <p>Work is completed, evidence is stored, and the asset history is updated permanently.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-alt" id="use-cases">
+        <div class="section-heading">
+          <p class="eyebrow">Built for many environments</p>
+          <h2>From campuses to factories, MaintainIQ scales with operations.</h2>
+        </div>
+        <div class="use-cases">
+          <span>Schools and universities</span>
+          <span>Hospitals and labs</span>
+          <span>Offices and housing societies</span>
+          <span>Hotels and restaurants</span>
+          <span>Factories and warehouses</span>
+          <span>Facility management companies</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>MaintainIQ · turning maintenance from a reactive chore into a transparent operating system.</p>
+    </footer>
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+  });
+
+  navLinks.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => navLinks.classList.remove("open"));
+  });
+}
+  </script>
+  </body>
+</html>
